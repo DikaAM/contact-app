@@ -1,0 +1,64 @@
+<form method="post" class="mt-3" action="/contact/update">
+  <input
+    type="hidden"
+    name="oldName"
+    value="<%= contact.oldName || contact.nama %>"
+  />
+  <input
+    type="hidden"
+    name="oldEmail"
+    value="<%= contact.oldEmail || contact.email %>"
+  />
+  <input
+    type="hidden"
+    name="oldNohp"
+    value="<%= contact.oldNohp || contact.nohp %>"
+  />
+
+  <% if (typeof errors != 'undefined') { %>
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      <% errors.forEach(error => { %>
+      <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  </div>
+  <% } %>
+  <div class="mb-3">
+    <label for="nama" class="form-label">Nama</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nama"
+      name="nama"
+      aria-describedby="namaHelp"
+      required
+      value="<%= contact.nama %>"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      aria-describedby="emailHelp"
+      required
+      value="<%= contact.email %>"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="nohp" class="form-label">No. Handphone</label>
+    <input
+      type="tel"
+      class="form-control"
+      id="nohp"
+      name="nohp"
+      aria-describedby="nohpHelp"
+      required
+      value="<%= contact.nohp %>"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
